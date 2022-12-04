@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -14,6 +15,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Brightness3Icon from '@mui/icons-material/Brightness3';
+import { Link } from "react-router-dom";
+
+
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Contact', 'Favs'];
@@ -26,6 +30,9 @@ function Navbar(props) {
     setMobileOpen(!mobileOpen);
   };
 
+
+  
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -33,12 +40,8 @@ function Navbar(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
+            {navItems.map((item) => (
+            <Link key={item} to={`/${item.toLowerCase()}`}> {item} </Link>
         ))}
       </List>
     </Box>
@@ -68,9 +71,7 @@ function Navbar(props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
+                 <Link key={item} to={`/${item.toLowerCase()}`}> {item} </Link>
             ))}
 
           
@@ -96,7 +97,7 @@ function Navbar(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ p: 3 }}>
+      <Box component="main" sx={{ p: 6 }}>
         
        
       </Box>

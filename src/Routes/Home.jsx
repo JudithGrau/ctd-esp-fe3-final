@@ -7,9 +7,8 @@ import Navbar from '../Components/Navbar'
 const Home = () => {
   return (
     <main className="" >
-      <h1>Home</h1>
-      <Navbar />
       <div className='card-grid'>
+      
         {/* Aqui deberias renderizar las cards */}
       </div>
     </main>

@@ -5,14 +5,17 @@ import Contact from './Routes/Contact';
 import Detail from './Routes/Detail';
 import Favs from './Routes/Favs';
 
+import App from './App'
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/dentist/:id" element={<Detail />} />
-        <Route path="/favs" element={<Favs />} />
+        <Route path="/" element={<App />} >
+          <Route path="home" element={<Home />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="dentist/:id" element={<Detail />} />
+          <Route path="favs" element={<Favs />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
