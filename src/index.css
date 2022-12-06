@@ -13,7 +13,6 @@ code {
 }
 .favButton{
   background-color: rgba(136, 136, 136, 0.116);
-  padding: 10px;
   border: none;
   width: 100%;
   cursor: pointer;
@@ -84,18 +83,22 @@ form{
   border: 0.5px solid rgb(206, 217, 142);
 }
 
+.card-container{
+  padding: 30px;
+
+}
 .card-grid{
-  display: flex;
-  justify-content: space-evenly;
-  gap: 1rem;
-  width: 90vw;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4rem;
+  width: 70vw;
   height: auto;
   flex-wrap: wrap;
   margin: 0 auto;
 }
 
 table {
- border-collapse: collapse;
+    border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
     display: table;

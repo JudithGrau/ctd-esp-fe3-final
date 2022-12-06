@@ -1,4 +1,4 @@
-import { useMemo, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { createContext } from "react";
 import axios from "axios";
 import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
@@ -28,18 +28,19 @@ export const ContextProvider = ({ children }) => {
   const theme = createTheme({
     palette:{
       mode: (state.modoDark ? 'dark': 'light')
-    }
+    } 
   });
 
   const getData = () =>{
-    axios.get(`https:jsonplaceholder.typicode.com/users`).then(
+    axios.get(`https:jsonplaceholder.typicode.com/users`)
+    .then(
       res=> {
         dispatch({type: "data", payload: res.data});
       }
     )
   }
 
-  useMemo(()  => getData(), [])
+  useEffect(()  => getData(), [])
 
   const store = {
     state,
