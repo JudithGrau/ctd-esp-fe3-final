@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useContext, useEffect } from 'react';
+import { useContext, useState,  React } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -7,11 +6,9 @@ import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
-
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
 import Brightness3Icon from '@mui/icons-material/Brightness3';
 import { Link } from "react-router-dom";
 import { ContextGlobal } from './utils/global.context';
@@ -22,15 +19,10 @@ const drawerWidth = 240;
 const navItems = ['Home', 'Contact', 'Favs'];
 
 function Navbar(props) {
-  const {state, dispatch} = useContext(ContextGlobal)
+  const { dispatch } = useContext(ContextGlobal)
 
-  useEffect(()=>{
-    console.log(state.data);
-  },[state.data])
-
-  
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -79,7 +71,7 @@ function Navbar(props) {
 
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-                <Link key={item} to={`/${item.toLowerCase()}`}> {item} </Link>
+                <Link style={{color: "#ffff"}} key={item} to={`/${item.toLowerCase()}`}> {item} </Link>
             ))}
           </Box>
 
