@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -7,15 +7,14 @@ import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
+
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+
 import Brightness3Icon from '@mui/icons-material/Brightness3';
 import { Link } from "react-router-dom";
+import { ContextGlobal } from './utils/global.context';
 
 
 
@@ -23,6 +22,13 @@ const drawerWidth = 240;
 const navItems = ['Home', 'Contact', 'Favs'];
 
 function Navbar(props) {
+  const {state, dispatch} = useContext(ContextGlobal)
+
+  useEffect(()=>{
+    console.log(state.data);
+  },[state.data])
+
+  
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -62,6 +68,7 @@ function Navbar(props) {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography
             variant="h6"
             component="div"
@@ -69,15 +76,23 @@ function Navbar(props) {
           >
             DH Odonto
           </Typography>
+
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-                 <Link key={item} to={`/${item.toLowerCase()}`}> {item} </Link>
+                <Link key={item} to={`/${item.toLowerCase()}`}> {item} </Link>
             ))}
-
-          
-            
           </Box>
-          <Brightness3Icon />
+
+          <IconButton 
+          onClick={()=> dispatch({type: "theme"})}
+          size="large"
+          edge= "start"
+          color="inherit"
+          aria-label='menu'
+          sx={{mr: 2, ml: 2}
+          } >
+            <Brightness3Icon />
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Box component="nav">
@@ -99,7 +114,6 @@ function Navbar(props) {
       </Box>
       <Box component="main" sx={{ p: 6 }}>
         
-       
       </Box>
     </Box>
   );
