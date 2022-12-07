@@ -1,10 +1,28 @@
 import React from 'react'
+import IconButton from '@mui/material/IconButton';
+import { Toolbar, Tooltip } from '@mui/material';
+import { socialNetwork } from './socialNetwork';
+import { Box } from '@mui/material';
+import { grey } from '@mui/material/colors';
 
 const Footer = () => {
   return (
     <footer>
-        <p>Powered by</p>
-        <img src="./img/DH.png" alt='DH-logo' />
+      <Box><img src="./images/DH.png" alt='DH-logo' /></Box>
+      <Box>
+      {
+            socialNetwork.map(({ linkto, snTitle, Icon }) => (
+              
+                <Tooltip key={snTitle} title={snTitle}>
+                  <IconButton sx={{color:grey[900]}}>
+                    <a href={linkto} target="e_blank" rel="nonreferrer"><Icon /></a>
+                    
+                  </IconButton>
+                </Tooltip>
+              
+            ))
+          }
+        </Box>
     </footer>
   )
 }
