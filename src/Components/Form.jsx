@@ -37,7 +37,7 @@ const Form = () => {
 
 
   return ( 
-    <form onSubmit={handleSubmit} style={{ height: "35vh", width: "20vw" ,padding: "20px", border: "1px solid gray", borderRadius: "5px" }} >
+    <form onSubmit={handleSubmit} >
       <TextField  label="Nombre Completo" onKeyUp={(e) => handleChange(e)} onChange={ (e)=> handleChange(e)} id="name" value={values.name} name="name" required />
       <TextField  label="Email" onKeyUp={(e) => handleChange(e)} onChange={ (e)=> handleChange(e)} id="email" value={values.email} name="email" required/>
       <Box>

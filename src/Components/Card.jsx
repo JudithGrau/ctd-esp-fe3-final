@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState, useEffect } from 'react';
 import BasicCard from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -6,16 +6,45 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea } from '@mui/material';
 import { Link } from "react-router-dom";
 
-const Card = ({ name, username, id }) => {
+const Card = (props) => {
+
   const avatar = "images/doctor.jpg"
 
+  const [like, setLike] = useState(false)
+  const [favsSelected, setFavsSelected] = useState([])
+  
+useEffect(() => {
+  const favorites = localStorage.getItem("favorites");
+  if (favorites){
+    const favoritesParsed = JSON.parse(favorites)
+    setFavsSelected(favoritesParsed)
+  }
+}, [like, props.id])
+
+
   const addFav = () => {
-    localStorage.setItem("dentist", [id, name, username])
-    // Aqui iria la logica para agregar la Card en el localStorage
+    setLike(!like)
+    const favorites = localStorage.getItem("favorites");
+    if(favorites){
+    let favParsed = JSON.parse(favorites);
+    const filteredDentist = favParsed.filter(item => item.id !== props.id);
+    const exist = filteredDentist.length !== favParsed.length;
+    exist ? favParsed = filteredDentist : favParsed.push({...props, liked:{isLiked: true, id: props.id}});
+    localStorage.setItem("favorites", JSON.stringify(favParsed));
+  } else {
+    localStorage.setItem("favorites", JSON.stringify([{...props, liked:{isLiked: true, id: props.id}}]))
+  }
+  }
+
+  const handleLikedStatus = () => {
+    if(favsSelected){
+      const  selectedFav = favsSelected.some(fav => fav.id === props.id)
+       return selectedFav ? "★" : "✰"
+    }
   }
 
   return (
-    <BasicCard className="card" id={id} >
+    <BasicCard className="card" >
       <CardActionArea>
         <CardMedia
           component="img"
@@ -26,17 +55,17 @@ const Card = ({ name, username, id }) => {
         <CardContent>
           <Link to="dentist/:id">
             <Typography sx={{ textAlign: "center" }} gutterBottom variant="subtitle2" color="text.primary" component="div">
-              {name}
+              {props.name}
             </Typography>
           </Link>
           <Typography sx={{ textAlign: "center" }} variant="subtitle2" color="text.secondary">
-            {username}
+            {props.username}
           </Typography>
         </CardContent>
       </CardActionArea>
 
       <Button onClick={addFav} className="favButton">
-        ⭐
+          {handleLikedStatus()} 
       </Button>
 
     </BasicCard>

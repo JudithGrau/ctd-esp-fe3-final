@@ -14,9 +14,8 @@ const Footer = () => {
             socialNetwork.map(({ linkto, snTitle, Icon }) => (
               
                 <Tooltip key={snTitle} title={snTitle}>
-                  <IconButton sx={{color:grey[900]}}>
-                    <a href={linkto} target="e_blank" rel="nonreferrer"><Icon /></a>
-                    
+                  <IconButton >
+                    <a  style={{color:"#000"}} href={linkto} target="e_blank" rel="nonreferrer"><Icon /></a>
                   </IconButton>
                 </Tooltip>
               
