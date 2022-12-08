@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -41,18 +42,19 @@ a:hover{
 
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   text-align: center;
   padding: 2rem;
   position: relative;
   bottom: 0;
-  width: 90%;
   height: 40px;
   margin-top: 2rem;
 }
 
-footer > img{
+footer >div> img{
   width: 200px;
+  min-height: 40px;
   margin: 0;
 }
 footer > p{
@@ -64,11 +66,14 @@ form{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 300px;
-  height: 100px;
+  width: 20vw;
+  height: 35vh;
   margin: 0 auto;
+  padding: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
 }
-
+ 
 .card{
   display: flex;
   justify-content: space-around;
