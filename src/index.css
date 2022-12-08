@@ -7,7 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -31,7 +30,7 @@ nav{
 }
 
 a{
-  color: #000;
+  color: rgb(43, 40, 40);
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
@@ -40,7 +39,7 @@ a:hover{
   color: rgb(136, 136, 136);
 } 
 
-footer {
+div >footer  {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -52,7 +51,7 @@ footer {
   margin-top: 2rem;
 }
 
-footer >div> img{
+div > footer  >div> img{
   width: 200px;
   min-height: 40px;
   margin: 0;
@@ -66,14 +65,11 @@ form{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 20vw;
-  height: 35vh;
+  /* width: 300px; */
+  height: auto;
   margin: 0 auto;
-  padding: 20px;
-  border: 1px solid gray;
-  border-radius: 5px;
 }
- 
+
 .card{
   display: flex;
   justify-content: space-around;
@@ -90,7 +86,7 @@ form{
 
 .card-container{
   padding: 30px;
-
+  width: 80%;
 }
 .card-grid{
   display: grid;
