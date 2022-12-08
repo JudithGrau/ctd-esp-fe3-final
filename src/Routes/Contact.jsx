@@ -5,10 +5,9 @@ import { Box } from '@mui/material'
 
 const Contact = () => {
   return (
-   
       <Box sx={{display: "flex", flexDirection: "column", height: "75vh", margin: "20px"}}>
-      <h2>Want to know more?</h2>
-      <p>Send us your questions and we will contact you</p>
+      <h2>¿Quieres saber más?</h2>
+      <p>Envíanos tus consultas y nos pondremos en contacto contigo</p>
       <Form/>
       </Box>
   )

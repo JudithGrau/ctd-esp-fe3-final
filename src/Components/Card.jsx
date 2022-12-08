@@ -39,10 +39,13 @@ useEffect(() => {
   const handleLikedStatus = () => {
     if(favsSelected){
       const  selectedFav = favsSelected.some(fav => fav.id === props.id)
-       return selectedFav ? "★" : "✰"
+        return selectedFav ? "★" : "✰"
     }
   }
 
+  /* En cada card deberan mostrar en name - username y el id */ 
+  /* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */ 
+  /* Ademas deberan integrar la logica para guardar cada Card en el localStorage */ 
   return (
     <BasicCard className="card" >
       <CardActionArea>
@@ -72,9 +75,4 @@ useEffect(() => {
 
   );
 };
-{/* En cada card deberan mostrar en name - username y el id */ }
-
-{/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */ }
-
-{/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */ }
 export default Card;
