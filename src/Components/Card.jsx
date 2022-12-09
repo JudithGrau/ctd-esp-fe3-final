@@ -62,10 +62,10 @@ useEffect(() => {
             <Typography sx={{ textAlign: "center" }} gutterBottom variant="subtitle2" color="text.primary" component="div">
               {props.name}
             </Typography>
+            <Typography sx={{ textAlign: "center" }} variant="subtitle2" color="text.secondary">
+              {props.username}
+            </Typography>
           </Link>
-          <Typography sx={{ textAlign: "center" }} variant="subtitle2" color="text.secondary">
-            {props.username}
-          </Typography>
         </CardContent>
       </CardActionArea>
 
