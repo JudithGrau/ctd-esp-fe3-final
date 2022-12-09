@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, TextField } from '@mui/material'
 
 const Form = () => {
-  //Aqui deberan implementar el form completo con sus validaciones
+
   const [values, setValues] = useState({ name: "", email: "" });
   const [userName, setUserName] = useState("");
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
