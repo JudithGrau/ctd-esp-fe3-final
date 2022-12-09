@@ -4,10 +4,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea } from '@mui/material';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Card = (props) => {
-
+  const { id } = useParams()
   const avatar = "images/doctor.jpg"
 
   const [like, setLike] = useState(false)
@@ -21,6 +21,7 @@ useEffect(() => {
   }
 }, [like, props.id])
 
+  
 
   const addFav = () => {
     setLike(!like)
@@ -31,6 +32,7 @@ useEffect(() => {
     const exist = filteredDentist.length !== favParsed.length;
     exist ? favParsed = filteredDentist : favParsed.push({...props, liked:{isLiked: true, id: props.id}});
     localStorage.setItem("favorites", JSON.stringify(favParsed));
+    alert("Dentista agregado exitosamente!");
   } else {
     localStorage.setItem("favorites", JSON.stringify([{...props, liked:{isLiked: true, id: props.id}}]))
   }
@@ -56,7 +58,7 @@ useEffect(() => {
           alt="doctor avatar"
         />
         <CardContent>
-          <Link to="dentist/:id">
+          <Link to={`/dentist/${props.id}`}>
             <Typography sx={{ textAlign: "center" }} gutterBottom variant="subtitle2" color="text.primary" component="div">
               {props.name}
             </Typography>

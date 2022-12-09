@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -41,14 +40,14 @@ const Detail = () => {
     <>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-      <h1>Detail Dentist </h1>
+      <h1>Detalle del dentista </h1>
       <List
         sx={{ width: '60%', bgcolor: 'hsl(240deg 1% 57%)', marginLeft:'50px' }}
         component="ul"
         aria-labelledby="nested-list-subheader"
         subheader={
           <ListSubheader component="div" id="nested-list-subheader">
-            <h2 style={{textAlign:"center"}}>Dentist</h2>
+            <h2 style={{textAlign:"center"}}>Dentista</h2>
           </ListSubheader>
         }
       >
@@ -59,7 +58,7 @@ const Detail = () => {
           <ListItemText primary={data?.name}  disableTypography />
         </ListItemButton>
         <ListItemButton onClick={handleClick}>
-          <ListItemText primary="Where can you reach me?" disableTypography/>
+          <ListItemText primary="¿Dónde puedes encontrarme?" disableTypography/>
           {open ? <ExpandLess color='secondary'/> : <ExpandMore color='secondary'/>}
         </ListItemButton>
         <Collapse in={open} timeout="auto" unmountOnExit>
