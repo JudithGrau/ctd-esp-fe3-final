@@ -139,25 +139,5 @@ import { MemoryRouter} from 'react-router-dom'
           
     })
 
-    describe ('Navbar tests', () => {
-        
-        test('Render navbar', () => {
-            const { container } = render(
-              <MemoryRouter initialEntries={["/home"]}>
-                <Navbar />
-              </MemoryRouter>
-             
-            )
-           
-            expect(container).toHaveTextContent(
-              'odontologoTest'
-            )
-           
-            const Button = screen.getByTestId("likeButton")
-            expect(Button).toHaveTextContent("✰")
-          
-          })
 
-
-    })
   

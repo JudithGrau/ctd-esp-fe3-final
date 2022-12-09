@@ -4,10 +4,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea } from '@mui/material';
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
-  const { id } = useParams()
+
   const avatar = "images/doctor.jpg"
 
   const [like, setLike] = useState(false)
@@ -62,10 +62,10 @@ useEffect(() => {
             <Typography sx={{ textAlign: "center" }} gutterBottom variant="subtitle2" color="text.primary" component="div">
               {props.name}
             </Typography>
-          </Link>
-          <Typography data-testid="cardName" sx={{ textAlign: "center" }} variant="subtitle2" color="text.secondary">
+            <Typography data-testid="cardName" sx={{ textAlign: "center" }} variant="subtitle2" color="text.secondary">
             {props.username}
           </Typography>
+          </Link>
         </CardContent>
       </CardActionArea>
 

@@ -39,7 +39,7 @@ function Navbar(props) {
       <Divider />
       <List>
             {navItems.map((item) => (
-            <Link key={item} to={`/${item.toLowerCase()}`}> {item} </Link>
+            <Link data-testid={`${item.toLowerCase()}Menu`} key={item} to={`/${item.toLowerCase()}`}> {item} </Link>
         ))}
       </List>
     </Box>
