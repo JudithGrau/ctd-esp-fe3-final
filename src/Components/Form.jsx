@@ -46,7 +46,7 @@ const Form = () => {
       <Box>
       {showSuccessMsg ? <p> Gracias {userName}! Te contactaremos a la brevedad via mail</p> : <p> {errorMsg} </p>}
       </Box>
-      <Button disabled={(hasError())} type="submit" variant="contained">Enviar</Button>  
+      <Button data-testid="submitBtn" disabled={(hasError())} type="submit" variant="contained">Enviar</Button>  
     </form>
     <Box>
     <Button onClick={goBack}>

@@ -40,7 +40,7 @@ const Detail = () => {
     <>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-      <h1>Detalle del dentista </h1>
+      <h1>Detalle del dentista</h1>
       <List
         sx={{ width: '60%', bgcolor: 'hsl(240deg 1% 57%)', marginLeft:'50px' }}
         component="ul"

@@ -63,13 +63,13 @@ useEffect(() => {
               {props.name}
             </Typography>
           </Link>
-          <Typography sx={{ textAlign: "center" }} variant="subtitle2" color="text.secondary">
+          <Typography data-testid="cardName" sx={{ textAlign: "center" }} variant="subtitle2" color="text.secondary">
             {props.username}
           </Typography>
         </CardContent>
       </CardActionArea>
 
-      <Button onClick={addFav} className="favButton">
+      <Button data-testid="likeButton" onClick={addFav} className="favButton">
           {handleLikedStatus()} 
       </Button>
 
