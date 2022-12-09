@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -29,7 +28,7 @@ const Detail = () => {
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
   useEffect(() => {
     axios.get(`${url}/${params.id}`).then(res => setData(res.data)).catch(err => console.log(err));
-  },[])
+  },[params.id])
   const [open, setOpen] = useState(true);
 
   const handleClick = () => {
@@ -42,16 +41,12 @@ const Detail = () => {
     <>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-      <h1>Detalle del dentista </h1>
+      <h1>Detalle del dentista</h1>
       <List
-        sx={{ width: '60%', bgcolor: '#9a9a9c', marginLeft:'50px' }}
+        sx={{ width: '60%', margin:' 0 auto', border:'1px solid #c3c3c3', borderRadius: '15px', padding: '20px' }}
         component="ul"
         aria-labelledby="nested-list-subheader"
-        subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
-            <h2 style={{textAlign:"center"}}>Dentista</h2>
-          </ListSubheader>
-        }
+       
       >
         <ListItemButton>
           <ListItemIcon>
